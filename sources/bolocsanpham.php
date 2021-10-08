@@ -1,755 +1,415 @@
-	   
+	   <script>
+	   	$(document).ready(function() {
 
-<script>
 
 
 
 
 
-	   $(document).ready(function () {
 
 
 
 
 
+	   		function setGetParameter1(paramName, paramValue)
 
+	   		{
 
+	   			var url = window.location.href;
 
+	   			var hash = location.hash;
 
+	   			url = url.replace(hash, '');
 
+	   			if (url.indexOf(paramName + "=") >= 0)
 
-	   				function setGetParameter1(paramName, paramValue)
+	   			{
 
-							{
+	   				var prefix = url.substring(0, url.indexOf(paramName));
 
-							    var url = window.location.href;
+	   				var suffix = url.substring(url.indexOf(paramName));
 
-							    var hash = location.hash;
+	   				suffix = suffix.substring(suffix.indexOf("=") + 1);
 
-							    url = url.replace(hash, '');
+	   				suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
 
-							    if (url.indexOf(paramName + "=") >= 0)
+	   				url = prefix + paramName + "=" + paramValue + suffix;
 
-							    {
+	   			} else
 
-							        var prefix = url.substring(0, url.indexOf(paramName));
+	   			{
 
-							        var suffix = url.substring(url.indexOf(paramName));
+	   				if (url.indexOf("?") < 0)
 
-							        suffix = suffix.substring(suffix.indexOf("=") + 1);
+	   					url += "?" + paramName + "=" + paramValue;
 
-							        suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
+	   				else
 
-							        url = prefix + paramName + "=" + paramValue + suffix;
-
-							    }
-
-							    else
-
-							    {
-
-							    if (url.indexOf("?") < 0)
-
-							        url += "?" + paramName + "=" + paramValue;
-
-							    else
-
-							        url += "&" + paramName + "=" + paramValue;
-
-							    }
-
-							    window.location.href = url + hash;
-
-							
-
-					}
-
-
-
-
-
-
-
-
-
-					$('#sapxepthuonghieu .dropdown-menu a').click(function(){
-
-
-
-
-
-						var value=$(this).parent().attr('value');
-
-
-
-						var resquestvar='product_list_order';
-
-
-
-						setGetParameter1(resquestvar, value)
-
-
-
-
-
-
-
-					});
-
-					$('#gioihan .dropdown-menu a').click(function(){
-
-
-
-
-
-						var value=$(this).attr('value');
-
-
-
-						var resquestvar='product_list_limit';
-
-
-
-						setGetParameter1(resquestvar, value)
-
-
-
-
-
-
-
-					});
-
-
-
-					$('#phantrang .dropdown-menu a').click(function(){
-
-
-
-
-
-						var value=$(this).attr('value');
-
-
-
-						var resquestvar='page';
-
-
-
-						setGetParameter1(resquestvar, value)
-
-
-
-
-
-
-
-					});
-
-
-
-
-
-
-
-
-
-         		   $(".item_sort2").click(function(){
-
-
-
-                            var value=$(this).attr("value");
-
-                            var resquestvar='product_list_order';
-
-                      
-
-                            
-
-						setGetParameter1(resquestvar, value)
-
-
-
-                    });
-
-					function setGetParameter(paramName, paramValue)
-
-							{
-
-							    var url = window.location.href;
-
-							    var hash = location.hash;
-
-							    url = url.replace(hash, '');
-
-							    if (url.indexOf(paramName + "=") >= 0)
-
-							    {
-
-							        var prefix = url.substring(0, url.indexOf(paramName));
-
-							        var suffix = url.substring(url.indexOf(paramName));
-
-							        suffix = suffix.substring(suffix.indexOf("=") + 1);
-
-							        suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
-
-
-
-
-
-							        url = prefix + paramName + "=" + paramValue + suffix;
-
-
-
-
-
-							    }
-
-							    else
-
-							    {
-
-							    if (url.indexOf("?") < 0)
-
-
-
-							        url += "?" + paramName + "=" + paramValue;
-
-							    else
-
-							        url += "&" + paramName + "=" + paramValue;
-
-							    }
-
-							    // window.location.href = url + hash;
-
-							    window.history.pushState('string', '', url + hash);
-
-					}
-
-				
-
-
-
-				function removeQString1(key) {
-
-					var urlValue=document.location.href;
-
-					
-
-					//Get query string value
-
-					var searchUrl=location.search;
-
-					
-
-					if(key!="") {
-
-						oldValue = getParameterByName(key);
-
-						removeVal=key+"="+oldValue;
-
-						if(searchUrl.indexOf('?'+removeVal+'&')!= "-1") {
-
-							urlValue=urlValue.replace('?'+removeVal+'&','?');
-
-						}
-
-						else if(searchUrl.indexOf('&'+removeVal+'&')!= "-1") {
-
-							urlValue=urlValue.replace('&'+removeVal+'&','&');
-
-						}
-
-						else if(searchUrl.indexOf('?'+removeVal)!= "-1") {
-
-							urlValue=urlValue.replace('?'+removeVal,'');
-
-						}
-
-						else if(searchUrl.indexOf('&'+removeVal)!= "-1") {
-
-							urlValue=urlValue.replace('&'+removeVal,'');
-
-						}
-
-					}
-
-					else {
-
-						var searchUrl=location.search;
-
-						urlValue=urlValue.replace(searchUrl,'');
-
-					}
-
-					  window.location.href = urlValue;
-
-				}
-
-
-
-
-
-					function updateQueryStringParameter1( key, value) {
-
-				   			var uri=document.location.href;
-
-						    var i = uri.indexOf('#');
-
-						    var hash = i === -1 ? ''  : uri.substr(i);
-
-						         uri = i === -1 ? uri : uri.substr(0, i);
-
-
-
-						    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-
-						    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-
-						    if (uri.match(re)) {
-
-						        uri = uri.replace(re, '$1' + key + "=" + value + '$2');
-
-						    } else {
-
-						        uri = uri + separator + key + "=" + value;
-
-						    }
-
-						    // finally append the hash as well	
-
-				
-
-
-
-					  window.location.href = uri + hash;
-
-
-
-					}
-
-				 setTimeout(function () {
-
-		                loadurl();
-
-		            }, 500);
-
-
-
-			   	 function loadurl()
-
-			   	 {
-
-			   	 	var page1=$('#phantrang').attr('data-pagemoi');
-
-
-
-				   	 	if(page1!=0)
-
-				   	 	{
-
-
-
-			   	 		 setGetParameter('page',page1);
-
-				   	 	}
-
-			   	 	
-
-			   				 	
+	   					url += "&" + paramName + "=" + paramValue;
 
 	   			}
 
- 				
+	   			window.location.href = url + hash;
 
 
 
-	   				  $(".item_sort3 .del_item_sort").click(function(){
+	   		}
 
 
 
-                            var resquestvar=$(this).closest(".item_sort3").attr("data-request");
 
-                             var value=$(this).closest(".item_sort3").attr("data-value");
 
-                        
 
-                            $(this).closest(".item_sort3").removeClass("active");
 
-                           updateQueryStringParameter1(resquestvar,value);
 
 
+	   		$('#sapxepthuonghieu .dropdown-menu a').click(function() {
 
-                       
 
-                    });
 
 
 
+	   			var value = $(this).parent().attr('value');
 
 
- 					$(".item_sort .del_item_sort").click(function(){
 
+	   			var resquestvar = 'product_list_order';
 
 
-                            var resquestvar=$(this).closest(".item_sort").attr("data-request");
 
+	   			setGetParameter1(resquestvar, value)
 
 
-                        
 
-                            $(this).closest(".item_sort").removeClass("active");
 
-                            removeQString1(resquestvar) ;
 
 
 
-                       
+	   		});
 
-                    });
+	   		$('#gioihan .dropdown-menu a').click(function() {
 
 
 
-                    
 
 
+	   			var value = $(this).attr('value');
 
 
 
-						function getParameterByName(name) {
+	   			var resquestvar = 'product_list_limit';
 
-						    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 
-						    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
 
-						    results = regex.exec(location.search);
+	   			setGetParameter1(resquestvar, value)
 
-						    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 
-						}
 
 
 
 
 
+	   		});
 
 
 
+	   		$('#phantrang .dropdown-menu a').click(function() {
 
-				function removeQString(key) {
 
-					var urlValue=document.location.href;
 
-					
 
-					//Get query string value
 
-					var searchUrl=location.search;
+	   			var value = $(this).attr('value');
 
-					
 
-					if(key!="") {
 
-						oldValue = getParameterByName(key);
+	   			var resquestvar = 'page';
 
-						removeVal=key+"="+oldValue;
 
-						if(searchUrl.indexOf('?'+removeVal+'&')!= "-1") {
 
-							urlValue=urlValue.replace('?'+removeVal+'&','?');
+	   			setGetParameter1(resquestvar, value)
 
-						}
 
-						else if(searchUrl.indexOf('&'+removeVal+'&')!= "-1") {
 
-							urlValue=urlValue.replace('&'+removeVal+'&','&');
 
-						}
 
-						else if(searchUrl.indexOf('?'+removeVal)!= "-1") {
 
-							urlValue=urlValue.replace('?'+removeVal,'');
 
-						}
+	   		});
 
-						else if(searchUrl.indexOf('&'+removeVal)!= "-1") {
 
-							urlValue=urlValue.replace('&'+removeVal,'');
 
-						}
 
-					}
 
-					else {
 
-						var searchUrl=location.search;
 
-						urlValue=urlValue.replace(searchUrl,'');
 
-					}
 
-					history.pushState({state:1, rand: Math.random()}, '', urlValue);
+	   		$(".item_sort2").click(function() {
 
-				}
 
 
+	   			var value = $(this).attr("value");
 
-					function updateQueryStringParameter(uri, key, value) {
+	   			var resquestvar = 'product_list_order';
 
-				   
 
-						    var i = uri.indexOf('#');
 
-						    var hash = i === -1 ? ''  : uri.substr(i);
 
-						         uri = i === -1 ? uri : uri.substr(0, i);
 
+	   			setGetParameter1(resquestvar, value)
 
 
-						    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
 
-						    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+	   		});
 
-						    if (uri.match(re)) {
+	   		function setGetParameter(paramName, paramValue)
 
-						        uri = uri.replace(re, '$1' + key + "=" + value + '$2');
+	   		{
 
-						    } else {
+	   			var url = window.location.href;
 
-						        uri = uri + separator + key + "=" + value;
+	   			var hash = location.hash;
 
-						    }
+	   			url = url.replace(hash, '');
 
-						    // finally append the hash as well	
+	   			if (url.indexOf(paramName + "=") >= 0)
 
-					  window.history.pushState('string', '', uri + hash);
+	   			{
 
+	   				var prefix = url.substring(0, url.indexOf(paramName));
 
+	   				var suffix = url.substring(url.indexOf(paramName));
 
+	   				suffix = suffix.substring(suffix.indexOf("=") + 1);
 
+	   				suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
 
 
 
-					}
 
 
+	   				url = prefix + paramName + "=" + paramValue + suffix;
 
 
 
 
 
-	   			      $('#collapse1 .item_fillter .filter-option span.filter-text').click(function (e) {
+	   			} else
 
+	   			{
 
+	   				if (url.indexOf("?") < 0)
 
-	   			      		var url=window.location.href;
 
-	   			      		var resquestvar=$(this).parent().attr('data-request');
 
-	   			      		var parama=$(this).parent().attr('data-value');
+	   					url += "?" + paramName + "=" + paramValue;
 
+	   				else
 
+	   					url += "&" + paramName + "=" + paramValue;
 
+	   			}
 
+	   			// window.location.href = url + hash;
 
-		       			   		if($(this).closest('.item_fillter').hasClass('active'))
+	   			window.history.pushState('string', '', url + hash);
 
-		       			   		{
+	   		}
 
 
 
-		       			   			$(this).closest('.item_fillter').removeClass('active');
 
-		       			   			 // removeParam(resquestvar,url);
 
-		       			   			 removeQString(resquestvar) 
+	   		function removeQString1(key) {
 
-		       			   		}
+	   			var urlValue = document.location.href;
 
-		       			   		else
 
-		       			   		{
 
-		       			   			 $('#collapse1 .item_fillter').removeClass('active');
+	   			//Get query string value
 
-		       			   			$(this).closest('.item_fillter').addClass('active');
+	   			var searchUrl = location.search;
 
-		       			   			setGetParameter(resquestvar, parama);
 
 
+	   			if (key != "") {
 
-		       			   		}
+	   				oldValue = getParameterByName(key);
 
+	   				removeVal = key + "=" + oldValue;
 
+	   				if (searchUrl.indexOf('?' + removeVal + '&') != "-1") {
 
-	   			      		
+	   					urlValue = urlValue.replace('?' + removeVal + '&', '?');
 
-	   			      			
+	   				} else if (searchUrl.indexOf('&' + removeVal + '&') != "-1") {
 
-	   			      	 	search_ajax();
+	   					urlValue = urlValue.replace('&' + removeVal + '&', '&');
 
-	   			      	 	return false;
+	   				} else if (searchUrl.indexOf('?' + removeVal) != "-1") {
 
+	   					urlValue = urlValue.replace('?' + removeVal, '');
 
+	   				} else if (searchUrl.indexOf('&' + removeVal) != "-1") {
 
-	   			      });
+	   					urlValue = urlValue.replace('&' + removeVal, '');
 
+	   				}
 
+	   			} else {
 
+	   				var searchUrl = location.search;
 
+	   				urlValue = urlValue.replace(searchUrl, '');
 
-	   			      <?php   $mangloc=array(6=>'Thương hiệu',7=>'Giá',11=>'Inch',8=>'Số kênh',9=>"Công suất",10=>"Tiện ích",12=>'Dung tích',13=>"Nơi sản xuất");
+	   			}
 
+	   			window.location.href = urlValue;
 
+	   		}
 
 
 
-	   			      		foreach ($mangloc as $kk => $vv) {
 
-	   			      			     $tenkd1=q_bodautv1($mangloc[$kk]);
 
-	   			      ?>
+	   		function updateQueryStringParameter1(key, value) {
 
+	   			var uri = document.location.href;
 
+	   			var i = uri.indexOf('#');
 
-	   			           $('#collapse<?=$kk?> .item_fillter .filter-option label').click(function (e) {
+	   			var hash = i === -1 ? '' : uri.substr(i);
 
+	   			uri = i === -1 ? uri : uri.substr(0, i);
 
 
 
+	   			var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
 
+	   			var separator = uri.indexOf('?') !== -1 ? "&" : "?";
 
+	   			if (uri.match(re)) {
 
-	   			           		var parama1=[];
+	   				uri = uri.replace(re, '$1' + key + "=" + value + '$2');
 
-	   			          	 	var url=window.location.href;
+	   			} else {
 
-	   			      			var resquestvar=$(this).parent().attr('data-request');
+	   				uri = uri + separator + key + "=" + value;
 
-	   			      			
+	   			}
 
-		       			   			if ($(this).parent('.filter-option').find('input[type="checkbox"]').is(':checked')) {
+	   			// finally append the hash as well	
 
-						                $(this).parent('.filter-option').find('input[type="checkbox"]').prop('checked',false);
 
-						               
 
-						            }
 
-						            else
 
-						            {
+	   			window.location.href = uri + hash;
 
-						               $(this).parent('.filter-option').find('input[type="checkbox"]').prop('checked',true);
 
 
+	   		}
 
-						              
+	   		setTimeout(function() {
 
-						            }
+	   			loadurl();
 
+	   		}, 500);
 
 
-						             jQuery("input:checkbox[name=id_<?=$tenkd1?>]:checked").each(function()
 
-										{
+	   		function loadurl()
 
-											parama1.push($(this).parent().attr('data-value'));
+	   		{
 
-										});
+	   			var page1 = $('#phantrang').attr('data-pagemoi');
 
 
 
-						        		updateQueryStringParameter(url,resquestvar,parama1);
+	   			if (page1 != 0)
 
-	   			      			
+	   			{
 
-			   			      	 	search_ajax();
 
-			   			      	 	return false;
 
+	   				setGetParameter('page', page1);
 
+	   			}
 
-	   			  		    });
 
 
 
 
+	   		}
 
 
 
 
 
+	   		$(".item_sort3 .del_item_sort").click(function() {
 
 
-	   			           <?php } ?>
 
+	   			var resquestvar = $(this).closest(".item_sort3").attr("data-request");
 
+	   			var value = $(this).closest(".item_sort3").attr("data-value");
 
 
 
+	   			$(this).closest(".item_sort3").removeClass("active");
 
+	   			updateQueryStringParameter1(resquestvar, value);
 
 
 
-	   			     // $('#collapse3 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
 
+	   		});
 
-	   			     //  		var url=window.location.href;
 
-	   			     //  		var resquestvar=$(this).parent().attr('data-request');
 
-	   			     //  		var parama=$(this).parent().attr('data-value');
 
 
+	   		$(".item_sort .del_item_sort").click(function() {
 
 
 
-		       			//    		if($(this).closest('.item_fillter').hasClass('active'))
+	   			var resquestvar = $(this).closest(".item_sort").attr("data-request");
 
-		       			//    		{
 
 
 
-		       			//    			$(this).closest('.item_fillter').removeClass('active');
 
-		       			//    			 // removeParam(resquestvar,url);
+	   			$(this).closest(".item_sort").removeClass("active");
 
-		       			//    			 	 removeQString(resquestvar) 
+	   			removeQString1(resquestvar);
 
-		       			//    		}
 
-		       			//    		else
 
-		       			//    		{
 
-		       			//    			 $('#collapse3 .item_fillter').removeClass('active');
 
-		       			//    			$(this).closest('.item_fillter').addClass('active');
+	   		});
 
-		       			//    			setGetParameter(resquestvar, parama);
 
 
 
-		       			//    		}
 
 
 
-	   			      		
 
-	   			      			
 
-	   			     //  	 	search_ajax();
+	   		function getParameterByName(name) {
 
-	   			     //  	 	return false;
+	   			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 
+	   			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
 
+	   				results = regex.exec(location.search);
 
-	   			     //  });
+	   			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 
+	   		}
 
 
 
@@ -758,433 +418,419 @@
 
 
 
-	   			     //    $('#collapse4 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
+	   		function removeQString(key) {
 
+	   			var urlValue = document.location.href;
 
-	   			     //  		var url=window.location.href;
 
-	   			     //  		var resquestvar=$(this).parent().attr('data-request');
 
-	   			     //  		var parama=$(this).parent().attr('data-value');
+	   			//Get query string value
 
+	   			var searchUrl = location.search;
 
 
 
+	   			if (key != "") {
 
-		       			//    		if($(this).closest('.item_fillter').hasClass('active'))
+	   				oldValue = getParameterByName(key);
 
-		       			//    		{
+	   				removeVal = key + "=" + oldValue;
 
+	   				if (searchUrl.indexOf('?' + removeVal + '&') != "-1") {
 
+	   					urlValue = urlValue.replace('?' + removeVal + '&', '?');
 
-		       			//    			$(this).closest('.item_fillter').removeClass('active');
+	   				} else if (searchUrl.indexOf('&' + removeVal + '&') != "-1") {
 
-		       			//    			 // removeParam(resquestvar,url);
+	   					urlValue = urlValue.replace('&' + removeVal + '&', '&');
 
-		       			//    			  	 removeQString(resquestvar) 
+	   				} else if (searchUrl.indexOf('?' + removeVal) != "-1") {
 
-		       			//    		}
+	   					urlValue = urlValue.replace('?' + removeVal, '');
 
-		       			//    		else
+	   				} else if (searchUrl.indexOf('&' + removeVal) != "-1") {
 
-		       			//    		{
+	   					urlValue = urlValue.replace('&' + removeVal, '');
 
-		       			//    			 $('#collapse4 .item_fillter').removeClass('active');
+	   				}
 
-		       			//    			$(this).closest('.item_fillter').addClass('active');
+	   			} else {
 
-		       			//    			setGetParameter(resquestvar, parama);
+	   				var searchUrl = location.search;
 
+	   				urlValue = urlValue.replace(searchUrl, '');
 
+	   			}
 
-		       			//    		}
+	   			history.pushState({
+	   				state: 1,
+	   				rand: Math.random()
+	   			}, '', urlValue);
 
+	   		}
 
 
-	   			      		
 
-	   			      			
+	   		function updateQueryStringParameter(uri, key, value) {
 
-	   			     //  	 	search_ajax();
 
-	   			     //  	 	return false;
 
+	   			var i = uri.indexOf('#');
 
+	   			var hash = i === -1 ? '' : uri.substr(i);
 
-	   			     //  });
+	   			uri = i === -1 ? uri : uri.substr(0, i);
 
 
 
+	   			var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
 
+	   			var separator = uri.indexOf('?') !== -1 ? "&" : "?";
 
-	   			     //       $('#collapse5 .item_fillter .filter-option  span.filter-text').click(function (e) {
+	   			if (uri.match(re)) {
 
+	   				uri = uri.replace(re, '$1' + key + "=" + value + '$2');
 
+	   			} else {
 
-	   			     //  		var url=window.location.href;
+	   				uri = uri + separator + key + "=" + value;
 
-	   			     //  		var resquestvar=$(this).parent().attr('data-request');
+	   			}
 
-	   			     //  		var parama=$(this).parent().attr('data-value');
+	   			// finally append the hash as well	
 
+	   			window.history.pushState('string', '', uri + hash);
 
 
 
 
-		       			//    		if($(this).closest('.item_fillter').hasClass('active'))
 
-		       			//    		{
 
 
+	   		}
 
-		       			//    			$(this).closest('.item_fillter').removeClass('active');
 
-		       			//    			 // removeParam(resquestvar,url);
 
-		       			//    			  	 removeQString(resquestvar) 
 
-		       			//    		}
 
-		       			//    		else
 
-		       			//    		{
 
-		       			//    			 $('#collapse5 .item_fillter').removeClass('active');
+	   		$('#collapse1 .item_fillter .filter-option span.filter-text').click(function(e) {
 
-		       			//    			$(this).closest('.item_fillter').addClass('active');
 
-		       			//    			setGetParameter(resquestvar, parama);
 
+	   			var url = window.location.href;
 
+	   			var resquestvar = $(this).parent().attr('data-request');
 
-		       			//    		}
+	   			var parama = $(this).parent().attr('data-value');
 
 
 
-	   			      		
 
-	   			      			
 
-	   			     //  	 	search_ajax();
+	   			if ($(this).closest('.item_fillter').hasClass('active'))
 
-	   			     //  	 	return false;
+	   			{
 
 
 
-	   			     //  });
+	   				$(this).closest('.item_fillter').removeClass('active');
 
+	   				// removeParam(resquestvar,url);
 
+	   				removeQString(resquestvar)
 
+	   			} else
 
+	   			{
 
+	   				$('#collapse1 .item_fillter').removeClass('active');
 
+	   				$(this).closest('.item_fillter').addClass('active');
 
-	   			      //     $('#collapse6 .item_fillter .filter-option  span.filter-text').click(function (e) {
+	   				setGetParameter(resquestvar, parama);
 
 
 
-	   			      // 		var url=window.location.href;
+	   			}
 
-	   			      // 		var resquestvar=$(this).parent().attr('data-request');
 
-	   			      // 		var parama=$(this).parent().attr('data-value');
 
 
 
 
 
-		       			 //   		if($(this).closest('.item_fillter').hasClass('active'))
+	   			search_ajax();
 
-		       			 //   		{
+	   			return false;
 
 
 
-		       			 //   			$(this).closest('.item_fillter').removeClass('active');
+	   		});
 
-		       			 //   			 // removeParam(resquestvar,url);
 
-		       			 //   			  	 removeQString(resquestvar) 
 
-		       			 //   		}
 
-		       			 //   		else
 
-		       			 //   		{
+	   		<?php $mangloc = array(6 => 'Thương hiệu', 7 => 'Giá', 11 => 'Inch', 8 => 'Số kênh', 9 => "Công suất", 10 => "Tiện ích", 12 => 'Dung tích', 13 => "Nơi sản xuất");
 
-		       			 //   			 $('#collapse6 .item_fillter').removeClass('active');
 
-		       			 //   			$(this).closest('.item_fillter').addClass('active');
 
-		       			 //   			setGetParameter(resquestvar, parama);
 
 
+				foreach ($mangloc as $kk => $vv) {
 
-		       			 //   		}
+					$tenkd1 = q_bodautv1($mangloc[$kk]);
 
+				?>
 
 
-	   			      		
 
-	   			      			
+	   			$('#collapse<?= $kk ?> .item_fillter .filter-option label').click(function(e) {
 
-	   			      // 	 	search_ajax();
 
-	   			      // 	 	return false;
 
 
 
-	   			      // });
 
 
+	   				var parama1 = [];
 
-	   			      //        $('#collapse7 .item_fillter .filter-option  span.filter-text').click(function (e) {
+	   				var url = window.location.href;
 
+	   				var resquestvar = $(this).parent().attr('data-request');
 
 
-	   			      // 		var url=window.location.href;
 
-	   			      // 		var resquestvar=$(this).parent().attr('data-request');
+	   				if ($(this).parent('.filter-option').find('input[type="checkbox"]').is(':checked')) {
 
-	   			      // 		var parama=$(this).parent().attr('data-value');
+	   					$(this).parent('.filter-option').find('input[type="checkbox"]').prop('checked', false);
 
 
 
+	   				} else
 
+	   				{
 
-		       			 //   		if($(this).closest('.item_fillter').hasClass('active'))
+	   					$(this).parent('.filter-option').find('input[type="checkbox"]').prop('checked', true);
 
-		       			 //   		{
 
 
 
-		       			 //   			$(this).closest('.item_fillter').removeClass('active');
 
-		       			   		
+	   				}
 
-		       			 //   			  	 removeQString(resquestvar) 
 
-		       			 //   		}
 
-		       			 //   		else
+	   				jQuery("input:checkbox[name=id_<?= $tenkd1 ?>]:checked").each(function()
 
-		       			 //   		{
+	   					{
 
-		       			 //   			 $('#collapse7 .item_fillter').removeClass('active');
+	   						parama1.push($(this).parent().attr('data-value'));
 
-		       			 //   			$(this).closest('.item_fillter').addClass('active');
+	   					});
 
-		       			 //   			setGetParameter(resquestvar, parama);
 
 
+	   				updateQueryStringParameter(url, resquestvar, parama1);
 
-		       			 //   		}
 
 
+	   				search_ajax();
 
-	   			      		
+	   				return false;
 
-	   			      			
 
-	   			      // 	 	search_ajax();
 
-	   			      // 	 	return false;
+	   			});
 
 
 
-	   			      // });
 
 
 
-	   			      //    $('#collapse8 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
 
 
-	   			      // 		var url=window.location.href;
 
-	   			      // 		var resquestvar=$(this).parent().attr('data-request');
 
-	   			      // 		var parama=$(this).parent().attr('data-value');
+	   		<?php } ?>
 
 
 
 
 
-		       			 //   		if($(this).closest('.item_fillter').hasClass('active'))
 
-		       			 //   		{
 
 
 
-		       			 //   			$(this).closest('.item_fillter').removeClass('active');
+	   		// $('#collapse3 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
-		       			   		
 
-		       			 //   			  	 removeQString(resquestvar) 
 
-		       			 //   		}
+	   		//  		var url=window.location.href;
 
-		       			 //   		else
+	   		//  		var resquestvar=$(this).parent().attr('data-request');
 
-		       			 //   		{
+	   		//  		var parama=$(this).parent().attr('data-value');
 
-		       			 //   			 $('#collapse8 .item_fillter').removeClass('active');
 
-		       			 //   			$(this).closest('.item_fillter').addClass('active');
 
-		       			 //   			setGetParameter(resquestvar, parama);
 
 
+	   		//    		if($(this).closest('.item_fillter').hasClass('active'))
 
-		       			 //   		}
+	   		//    		{
 
 
 
-	   			      		
+	   		//    			$(this).closest('.item_fillter').removeClass('active');
 
-	   			      			
+	   		//    			 // removeParam(resquestvar,url);
 
-	   			      // 	 	search_ajax();
+	   		//    			 	 removeQString(resquestvar) 
 
-	   			      // 	 	return false;
+	   		//    		}
 
+	   		//    		else
 
+	   		//    		{
 
-	   			      // });
+	   		//    			 $('#collapse3 .item_fillter').removeClass('active');
 
+	   		//    			$(this).closest('.item_fillter').addClass('active');
 
+	   		//    			setGetParameter(resquestvar, parama);
 
 
 
-				
+	   		//    		}
 
-	   			     
 
-	   			    function search_ajax()
 
-	   			    {			
 
 
 
 
+	   		//  	 	search_ajax();
 
-	   			 										
+	   		//  	 	return false;
 
-	   			    					var url=document.location.href;
 
-	   			    					var searchUrl1=location.search;
 
+	   		//  });
 
 
 
 
 
 
-						   			      <?php      $mangloc=array(6=>'Thương hiệu',7=>'Giá',11=>'Inch',8=>'Số kênh',9=>"Công suất",10=>"Tiện ích",12=>'Dung tích',13=>"Nơi sản xuất");
 
 
 
-						   			      		foreach ($mangloc as $kk => $vv) {
+	   		//    $('#collapse4 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
-						   			      			     $tenkd1=q_bodautv1($mangloc[$kk]);
 
-						   			      ?>
 
+	   		//  		var url=window.location.href;
 
+	   		//  		var resquestvar=$(this).parent().attr('data-request');
 
+	   		//  		var parama=$(this).parent().attr('data-value');
 
 
-									     		var id_<?=$tenkd1?>='';
 
-									      	   jQuery("input:checkbox[name=id_<?=$tenkd1?>]:checked").each(function()
 
-									            {
 
-									                id_<?=$tenkd1?>=id_<?=$tenkd1?> +jQuery(this).parent().attr('data-value')+',';
+	   		//    		if($(this).closest('.item_fillter').hasClass('active'))
 
-									            });
+	   		//    		{
 
 
 
+	   		//    			$(this).closest('.item_fillter').removeClass('active');
 
+	   		//    			 // removeParam(resquestvar,url);
 
+	   		//    			  	 removeQString(resquestvar) 
 
+	   		//    		}
 
-									      <?php } ?>
+	   		//    		else
 
+	   		//    		{
 
+	   		//    			 $('#collapse4 .item_fillter').removeClass('active');
 
-	   			    			
+	   		//    			$(this).closest('.item_fillter').addClass('active');
 
+	   		//    			setGetParameter(resquestvar, parama);
 
 
 
+	   		//    		}
 
-										var limit=$('#product_list_limit').attr('data-limit');
 
-										var cat=$('#product_cat').attr('data-cat');
 
-										var cat1=$('#product_cat1').attr('data-cat1');
 
-										var cat2=$('#product_cat2').attr('data-cat2');
 
-										var order=$('#product_list_order').attr('data-order');
 
-										var page=$('#pageajax').attr('data-page');
 
-	   			    		          $.ajax({
+	   		//  	 	search_ajax();
 
-					                  type: "post",
+	   		//  	 	return false;
 
-					                  url: 'ajax/locsanpham1.php',
 
-					                   dataType: 'json',
 
-					                 data: {'searchUrl1':searchUrl1,'url':url,'page':page,'order':order,'limit':limit,'id_thuong_hieu':id_thuong_hieu,'id_gia':id_gia,'id_inch':id_inch,'id_tien_ich':id_tien_ich,'id_so_kenh':id_so_kenh,'id_cong_suat':id_cong_suat,'id_dung_tich':id_dung_tich,'id_noi_san_xuat':id_noi_san_xuat,'cat':cat,'cat1':cat1,'cat2':cat2},
+	   		//  });
 
-					          			 
 
-					                	  beforeSend: function(){
 
 
 
-						                    $('.page-loading').css("display","block");
+	   		//       $('#collapse5 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
-						               },
 
-					                  success: function(result){
 
+	   		//  		var url=window.location.href;
 
+	   		//  		var resquestvar=$(this).parent().attr('data-request');
 
-					                  			
+	   		//  		var parama=$(this).parent().attr('data-value');
 
-					                           		    $('.page-loading').css("display","none");
 
-					                           		  
 
-					             					$('#listspthuonghieu').html(result.data1);
 
-					             					 $('.sort_from_left span').html(result.dsloc);
 
-					             					 $('#phantrang .dropdown-menu').html(result.phantrang);
+	   		//    		if($(this).closest('.item_fillter').hasClass('active'))
 
-					                          }
+	   		//    		{
 
-					               });
 
 
+	   		//    			$(this).closest('.item_fillter').removeClass('active');
 
+	   		//    			 // removeParam(resquestvar,url);
 
+	   		//    			  	 removeQString(resquestvar) 
 
-	   			    }
+	   		//    		}
 
+	   		//    		else
 
+	   		//    		{
 
+	   		//    			 $('#collapse5 .item_fillter').removeClass('active');
 
+	   		//    			$(this).closest('.item_fillter').addClass('active');
 
+	   		//    			setGetParameter(resquestvar, parama);
 
 
 
+	   		//    		}
 
 
 
@@ -1192,10 +838,13 @@
 
 
 
+	   		//  	 	search_ajax();
 
+	   		//  	 	return false;
 
 
 
+	   		//  });
 
 
 
@@ -1203,179 +852,537 @@
 
 
 
+	   		//     $('#collapse6 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
-                if ($("#collapse1 .scroll-pane").height() > 150) {
 
-                		$("#collapse1 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-	             	
+	   		// 		var url=window.location.href;
 
-       			   }
+	   		// 		var resquestvar=$(this).parent().attr('data-request');
 
+	   		// 		var parama=$(this).parent().attr('data-value');
 
 
-       			 if ($("#collapse2.scroll-pane").height() > 150) {
 
-                		$("#collapse2.scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-	             	
 
-       			   }
+	   		//   		if($(this).closest('.item_fillter').hasClass('active'))
 
-       			   if ($("#collapse3 .scroll-pane").height() > 150) {
+	   		//   		{
 
-                		$("#collapse3 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-	             	
 
-       			   }
+	   		//   			$(this).closest('.item_fillter').removeClass('active');
 
-       			   if ($("#collapse4 .scroll-pane").height() > 150) {
+	   		//   			 // removeParam(resquestvar,url);
 
-                		$("#collapse4 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
+	   		//   			  	 removeQString(resquestvar) 
 
-	             	
+	   		//   		}
 
-       			   }
+	   		//   		else
 
-       			   if ($("#collapse5 .scroll-pane").height() > 150) {
+	   		//   		{
 
-                		$("#collapse5 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
+	   		//   			 $('#collapse6 .item_fillter').removeClass('active');
 
-	             	
+	   		//   			$(this).closest('.item_fillter').addClass('active');
 
-       			   }
+	   		//   			setGetParameter(resquestvar, parama);
 
-       			   if ($("#collapse6 .scroll-pane").height() > 150) {
 
-                		$("#collapse6 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-	             	
+	   		//   		}
 
-       			   }
 
-       			      if ($("#collapse7 .scroll-pane").height() > 150) {
 
-                		$("#collapse7 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-	             	
 
-       			   }
 
 
+	   		// 	 	search_ajax();
 
-				   if ($("#collapse8 .scroll-pane").height() > 150) {
+	   		// 	 	return false;
 
-				                		$("#collapse8 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-					             	
 
-				       			   }
+	   		// });
 
 
 
-				   if ($("#collapse9 .scroll-pane").height() > 150) {
+	   		//        $('#collapse7 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
-				                		$("#collapse9 .scroll-pane .content_scoller").css({"height": "150px","overflow-y":"scroll"});
 
-					             	
 
-				       			   }
+	   		// 		var url=window.location.href;
 
+	   		// 		var resquestvar=$(this).parent().attr('data-request');
 
+	   		// 		var parama=$(this).parent().attr('data-value');
 
 
 
 
 
+	   		//   		if($(this).closest('.item_fillter').hasClass('active'))
 
+	   		//   		{
 
 
 
+	   		//   			$(this).closest('.item_fillter').removeClass('active');
 
 
-  
 
-      $("#owl-spchitiet").owlCarousel({
+	   		//   			  	 removeQString(resquestvar) 
 
-             items : 6,
+	   		//   		}
 
-                
+	   		//   		else
 
-        loop:true,
+	   		//   		{
 
-        slideSpeed : 2000,
+	   		//   			 $('#collapse7 .item_fillter').removeClass('active');
 
-        nav: true,
+	   		//   			$(this).closest('.item_fillter').addClass('active');
 
-        autoplay: true,
+	   		//   			setGetParameter(resquestvar, parama);
 
-        navText: ["<img src='img/nutprev.png'>","<img src='img/nutnext.png'>"],
 
-         responsive:{
 
-                                                  0:{
+	   		//   		}
 
-                                                      items:2,
 
-                                                      nav:false,
 
-                                                      loop:true
 
-                                                  },
 
-                                                  600:{
 
-                                                      items:3,
 
-                                                      nav:false,
+	   		// 	 	search_ajax();
 
-                                                      loop:true
+	   		// 	 	return false;
 
-                                                  },
 
-                                                  1000:{
 
-                                                      items:6,
+	   		// });
 
-                                                      nav:true,
 
-                                                      loop:true
 
-                                                   
+	   		//    $('#collapse8 .item_fillter .filter-option  span.filter-text').click(function (e) {
 
-                                                  }
 
-                                              }
 
+	   		// 		var url=window.location.href;
 
+	   		// 		var resquestvar=$(this).parent().attr('data-request');
 
-                                               
+	   		// 		var parama=$(this).parent().attr('data-value');
 
 
 
-    
 
-      });
 
+	   		//   		if($(this).closest('.item_fillter').hasClass('active'))
 
+	   		//   		{
 
 
 
-       			  
+	   		//   			$(this).closest('.item_fillter').removeClass('active');
 
 
 
+	   		//   			  	 removeQString(resquestvar) 
 
+	   		//   		}
 
-        });
+	   		//   		else
 
+	   		//   		{
 
+	   		//   			 $('#collapse8 .item_fillter').removeClass('active');
 
+	   		//   			$(this).closest('.item_fillter').addClass('active');
 
+	   		//   			setGetParameter(resquestvar, parama);
 
 
 
-	   
+	   		//   		}
 
-</script>
+
+
+
+
+
+
+	   		// 	 	search_ajax();
+
+	   		// 	 	return false;
+
+
+
+	   		// });
+
+
+
+
+
+
+
+
+
+	   		function search_ajax()
+
+	   		{
+
+
+
+
+
+
+
+	   			var url = document.location.href;
+
+	   			var searchUrl1 = location.search;
+
+
+
+
+
+
+
+	   			<?php $mangloc = array(6 => 'Thương hiệu', 7 => 'Giá', 11 => 'Inch', 8 => 'Số kênh', 9 => "Công suất", 10 => "Tiện ích", 12 => 'Dung tích', 13 => "Nơi sản xuất");
+
+
+
+					foreach ($mangloc as $kk => $vv) {
+
+						$tenkd1 = q_bodautv1($mangloc[$kk]);
+
+					?>
+
+
+
+
+
+	   				var id_<?= $tenkd1 ?> = '';
+
+	   				jQuery("input:checkbox[name=id_<?= $tenkd1 ?>]:checked").each(function()
+
+	   					{
+
+	   						id_<?= $tenkd1 ?> = id_<?= $tenkd1 ?> + jQuery(this).parent().attr('data-value') + ',';
+
+	   					});
+
+
+
+
+
+
+
+	   			<?php } ?>
+
+
+
+
+
+
+
+
+
+	   			var limit = $('#product_list_limit').attr('data-limit');
+
+	   			var cat = $('#product_cat').attr('data-cat');
+
+	   			var cat1 = $('#product_cat1').attr('data-cat1');
+
+	   			var cat2 = $('#product_cat2').attr('data-cat2');
+
+	   			var order = $('#product_list_order').attr('data-order');
+
+	   			var page = $('#pageajax').attr('data-page');
+
+	   			$.ajax({
+
+	   				type: "post",
+
+	   				url: 'ajax/locsanpham1.php',
+
+	   				dataType: 'json',
+
+	   				data: {
+	   					'searchUrl1': searchUrl1,
+	   					'url': url,
+	   					'page': page,
+	   					'order': order,
+	   					'limit': limit,
+	   					'id_thuong_hieu': id_thuong_hieu,
+	   					'id_gia': id_gia,
+	   					'id_inch': id_inch,
+	   					'id_tien_ich': id_tien_ich,
+	   					'id_so_kenh': id_so_kenh,
+	   					'id_cong_suat': id_cong_suat,
+	   					'id_dung_tich': id_dung_tich,
+	   					'id_noi_san_xuat': id_noi_san_xuat,
+	   					'cat': cat,
+	   					'cat1': cat1,
+	   					'cat2': cat2
+	   				},
+
+
+
+	   				beforeSend: function() {
+
+
+
+	   					$('.page-loading').css("display", "block");
+
+	   				},
+
+	   				success: function(result) {
+
+
+
+
+
+	   					$('.page-loading').css("display", "none");
+
+
+
+	   					$('#listspthuonghieu').html(result.data1);
+
+	   					$('.sort_from_left span').html(result.dsloc);
+
+	   					$('#phantrang .dropdown-menu').html(result.phantrang);
+
+	   				}
+
+	   			});
+
+
+
+
+
+	   		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	   		if ($("#collapse1 .scroll-pane").height() > 150) {
+
+	   			$("#collapse1 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+
+
+	   		if ($("#collapse2.scroll-pane").height() > 150) {
+
+	   			$("#collapse2.scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+	   		if ($("#collapse3 .scroll-pane").height() > 150) {
+
+	   			$("#collapse3 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+	   		if ($("#collapse4 .scroll-pane").height() > 150) {
+
+	   			$("#collapse4 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+	   		if ($("#collapse5 .scroll-pane").height() > 150) {
+
+	   			$("#collapse5 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+	   		if ($("#collapse6 .scroll-pane").height() > 150) {
+
+	   			$("#collapse6 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+	   		if ($("#collapse7 .scroll-pane").height() > 150) {
+
+	   			$("#collapse7 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+
+
+	   		if ($("#collapse8 .scroll-pane").height() > 150) {
+
+	   			$("#collapse8 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+
+
+	   		if ($("#collapse9 .scroll-pane").height() > 150) {
+
+	   			$("#collapse9 .scroll-pane .content_scoller").css({
+	   				"height": "150px",
+	   				"overflow-y": "scroll"
+	   			});
+
+
+
+	   		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	   		$("#owl-spchitiet").owlCarousel({
+
+	   			items: 6,
+
+
+
+	   			loop: true,
+
+	   			slideSpeed: 2000,
+
+	   			nav: true,
+
+	   			autoplay: true,
+
+	   			navText: ["<img src='img/nutprev.png'>", "<img src='img/nutnext.png'>"],
+
+	   			responsive: {
+
+	   				0: {
+
+	   					items: 2,
+
+	   					nav: false,
+
+	   					loop: true
+
+	   				},
+
+	   				600: {
+
+	   					items: 3,
+
+	   					nav: false,
+
+	   					loop: true
+
+	   				},
+
+	   				1000: {
+
+	   					items: 6,
+
+	   					nav: true,
+
+	   					loop: true
+
+
+
+	   				}
+
+	   			}
+
+
+
+
+
+
+
+
+
+	   		});
+
+
+
+
+
+
+
+
+
+
+
+	   	});
+	   </script>
