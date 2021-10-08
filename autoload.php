@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2014 Facebook, Inc.
  *
@@ -40,8 +41,7 @@ if (version_compare(PHP_VERSION, '5.4.0', '<')) {
  * @param string $class The fully-qualified class name.
  * @return void
  */
-spl_autoload_register(function ($class)
-{
+spl_autoload_register(function ($class) {
   // project-specific namespace prefix
   $prefix = 'Facebook\\';
 

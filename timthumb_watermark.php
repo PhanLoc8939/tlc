@@ -313,5 +313,3 @@ function get_cache_file () {
 	return $cache_file;
 	
 }
-
-?>
