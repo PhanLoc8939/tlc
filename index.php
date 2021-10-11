@@ -98,9 +98,9 @@ if ($_REQUEST['command'] == 'add' && $_REQUEST['productid'] > 0) {
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
 
-  <?php if ($com == 'san-pham') { ?>
+  <!-- <?php if ($com == 'san-pham') { ?>
     <?= $share_facebook ?>
-  <?php } ?>
+  <?php } ?> -->
   <?php $title_bar ?>
   <title><?= $title_bar ?></title>
   <!--GOOGLE ANALYTICS + GOOGLE WEBMASTER-->
@@ -118,20 +118,18 @@ if ($_REQUEST['command'] == 'add' && $_REQUEST['productid'] > 0) {
     </div>
     <?php include_once _template . "layout/footer.php"; ?>
   </div>
-
-  <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="media/easing/easing.min.js"></script>
-  <script src="media/waypoints/waypoints.min.js"></script>
   <script src="media/owlcarousel/owl.carousel.min.js"></script>
   <script src="media/isotope/isotope.pkgd.min.js"></script>
   <script src="media/lightbox/js/lightbox.min.js"></script>
+  <script src="media/owlcarousel/owl.carousel.min.js"></script>
+  <script src="media/isotope/isotope.pkgd.min.js"></script>
   <!-- Contact Javascript File -->
   <script src="media/jqBootstrapValidation.min.js"></script>
   <script src="media/contact.js"></script>
   <!-- Template Javascript -->
   <script src="media/js/main.js"></script>
+
 
 </body>
 

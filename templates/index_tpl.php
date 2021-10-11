@@ -14,59 +14,43 @@
         </div>
     </div>
     <!-- Header End -->
-    
+
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
+
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img class="img-fluid mb-4 mb-lg-0" src="img/about.jpg" alt="">
+                    <img class="img-fluid mb-4 mb-lg-0" src="<?= _upload_tinnho_l . $about['photo'] ?>" alt="<?= $about['ten_vi'] ?>">
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="display-4 text-uppercase mb-4">Best digital agency in downtown</h1>
-                    <h5 class="text-uppercase text-primary mb-3">Clita elitr et amet et ipsum sea. Ipsum stet kasd ea et no est duo diam. Lorem dolores eos ut nonumy ipsum sit clita lorem no amet dolor dolore, stet sit dolor justo</h5>
-                    <p class="mb-4">Eirmod est dolor nonumy sea amet dolore erat sit dolor et dolor vero. Tempor ipsum at justo amet at ipsum justo. Aiam kasd sea sit dolor duo elitr dolor amet, justo est ipsum amet dolor ut ipsum. Labore diam et nonumy amet dolores. Volup sit labore dolores erat, magna justo sed lorem kasd ea dolor. Labore sit clita invidunt, est dolores lorem sed ipsum kasd no amet ipsum.</p>
-                    <a href="" class="btn btn-primary text-uppercase py-3 px-5">Read More</a>
+                    <h1 class="display-4 text-uppercase mb-4"><?= $about['ten_vi'] ?></h1>
+                    <h5 class="text-uppercase text-primary mb-3"><?= $about['mota_vi'] ?></h5>
+                    <p class="mb-4"><?= $about['noidung_vi'] ?></p>
+                    <a href="about.html" class="btn btn-primary text-uppercase py-3 px-5">Read More</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
-    
+
 
     <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5">Our Creative Services</h1>
             <div class="row">
-                <div class="col-lg-3 mb-2">
-                    <div class="service-item rounded p-5 mb-4">
-                        <i class="fa fa-3x fa-laptop-code text-primary mb-4"></i>
-                        <h4 class="text-uppercase mb-4">Web <span class="d-block text-body">Design</span></h4>
-                        <p class="m-0">Vero amet vero eos kasd justo ipsum diam sed elitr</p>
+                <?php foreach ($services as $v) { ?>
+                    <div class="col-lg-3 mb-2">
+                        <a href="services/<?= $v['tenkhongdau_vi'] ?>-<?= $v['id'] ?>.html">
+                            <div class="service-item rounded p-5 mb-4">
+                                <img src="<?= _upload_tinnho_l . $v['photo'] ?>" alt="<?= $v['ten_vi'] ?>">
+                                <h4 class="text-uppercase mb-4"><?= $v['ten_vi'] ?></h4>
+                                <p class="m-0"><?= $v['mota_vi'] ?></p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-3 mb-2">
-                    <div class="service-item rounded p-5 mb-4">
-                        <i class="fa fa-3x fa-code text-primary mb-4"></i>
-                        <h4 class="text-uppercase mb-4">Web <span class="d-block text-body">Development</span></h4>
-                        <p class="m-0">Vero amet vero eos kasd justo ipsum diam sed elitr</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-2">
-                    <div class="service-item rounded p-5 mb-4">
-                        <i class="fa fa-3x fa-envelope-open-text text-primary mb-4"></i>
-                        <h4 class="text-uppercase mb-4">Digital <span class="d-block text-body">Marketing</span></h4>
-                        <p class="m-0">Vero amet vero eos kasd justo ipsum diam sed elitr</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-2">
-                    <div class="service-item rounded p-5 mb-4">
-                        <i class="fa fa-3x fa-edit text-primary mb-4"></i>
-                        <h4 class="text-uppercase mb-4">Content <span class="d-block text-body">Writing</span></h4>
-                        <p class="m-0">Vero amet vero eos kasd justo ipsum diam sed elitr</p>
-                    </div>
-                </div>
+                <?php  } ?>
             </div>
         </div>
     </div>
@@ -164,69 +148,62 @@
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5">Competitive Pricing</h1>
             <div class="row">
-                <div class="col-lg-4 mb-2">
-                    <div class="bg-light rounded text-center pt-5 mt-lg-5 mb-4">
-                        <h2 class="text-uppercase">Basic</h2>
-                        <h6 class="text-uppercase text-body mb-5">The Best Choice</h6>
-                        <div class="text-center bg-dark rounded-circle p-4 mb-2">
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top"
-                                    style="font-size: 22px; line-height: 45px;">$</small>49<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/
-                                    Mo</small>
-                            </h1>
+                <?php foreach ($price as $k => $v) { ?>
+                    <?php if ($k == 0) { ?>
+                        <div class="col-lg-4 mb-2">
+                            <div class="bg-light rounded text-center pt-5 mt-lg-5 mb-4">
+                                <h2 class="text-uppercase"><?= $v['ten_vi'] ?></h2>
+                                <h6 class="text-uppercase text-body mb-5"><?= $v['chucvu_vi'] ?></h6>
+                                <div class="text-center bg-dark rounded-circle p-4 mb-2">
+                                    <h1 class="display-4 text-white mb-0">
+                                        <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small><?= $v['diachi_vi'] ?><small class="align-bottom" style="font-size: 16px; line-height: 40px;">/Mo</small>
+                                    </h1>
+                                </div>
+                                <div class="text-center py-4">
+                                    <?= $v['mota_vi'] ?>
+                                    <a href="" class="btn btn-dark text-uppercase py-2 px-4 my-3">Order Now</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-center py-4">
-                            <p>HTML5 & CSS3</p>
-                            <p>Bootstrap v4</p>
-                            <p>Responsive Layout</p>
-                            <p>Compatible With All Browsers</p>
-                            <a href="" class="btn btn-dark text-uppercase py-2 px-4 my-3">Order Now</a>
+                    <?php } ?>
+                    <?php if ($k == 1) { ?>
+                        <div class="col-lg-4 mb-2">
+                            <div class="bg-dark rounded text-center pt-5 mb-4">
+                                <h2 class="text-uppercase text-white"><?= $v['ten_vi'] ?></h2>
+                                <h6 class="text-uppercase text-secondary mb-5"><?= $v['chucvu_vi'] ?></h6>
+                                <div class="text-center bg-primary rounded-circle p-4 mb-2">
+                                    <h1 class="display-4 mb-0">
+                                        <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small><?= $v['diachi_vi'] ?><small class="align-bottom" style="font-size: 16px; line-height: 40px;">/
+                                            Mo</small>
+                                    </h1>
+                                </div>
+                                <div class="text-center text-secondary py-4">
+                                    <?= $v['mota_vi'] ?>
+                                    <a href="" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <div class="bg-dark rounded text-center pt-5 mb-4">
-                        <h2 class="text-uppercase text-white">Standard</h2>
-                        <h6 class="text-uppercase text-secondary mb-5">The Best Choice</h6>
-                        <div class="text-center bg-primary rounded-circle p-4 mb-2">
-                            <h1 class="display-4 mb-0">
-                                <small class="align-top"
-                                    style="font-size: 22px; line-height: 45px;">$</small>99<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/
-                                    Mo</small>
-                            </h1>
+                    <?php } ?>
+                    <?php if ($k == 2) { ?>
+                        <div class="col-lg-4 mb-2">
+                            <div class="bg-light rounded text-center pt-5 mt-lg-5 mb-4">
+                                <h2 class=" text-uppercase"><?= $v['ten_vi'] ?></h2>
+                                <h6 class="text-uppercase text-body mb-5"><?= $v['chucvu_vi'] ?></h6>
+                                <div class="text-center bg-dark rounded-circle p-4 mb-2">
+                                    <h1 class="display-4 text-white mb-0">
+                                        <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small><?= $v['diachi_vi'] ?><small class="align-bottom" style="font-size: 16px; line-height: 40px;">/
+                                            Mo</small>
+                                    </h1>
+                                </div>
+                                <div class="text-center py-4">
+                                    <?= $v['mota_vi'] ?>
+                                    <a href="" class="btn btn-dark text-uppercase py-2 px-4 my-3">Order Now</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-center text-secondary py-4">
-                            <p>HTML5 & CSS3</p>
-                            <p>Bootstrap v4</p>
-                            <p>Responsive Layout</p>
-                            <p>Compatible With All Browsers</p>
-                            <a href="" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <div class="bg-light rounded text-center pt-5 mt-lg-5 mb-4">
-                        <h2 class=" text-uppercase">Extended</h2>
-                        <h6 class="text-uppercase text-body mb-5">The Best Choice</h6>
-                        <div class="text-center bg-dark rounded-circle p-4 mb-2">
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top"
-                                    style="font-size: 22px; line-height: 45px;">$</small>149<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/
-                                    Mo</small>
-                            </h1>
-                        </div>
-                        <div class="text-center py-4">
-                            <p>HTML5 & CSS3</p>
-                            <p>Bootstrap v4</p>
-                            <p>Responsive Layout</p>
-                            <p>Compatible With All Browsers</p>
-                            <a href="" class="btn btn-dark text-uppercase py-2 px-4 my-3">Order Now</a>
-                        </div>
-                    </div>
-                </div>
+                    <?php } ?>
+
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -238,70 +215,24 @@
         <div class="container py-5">
             <h1 class="display-4 text-uppercase text-center mb-5">Meet Our Team</h1>
             <div class="owl-carousel team-carousel position-relative" style="padding-left: 30px;">
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                        <div class="team-overlay">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <?php foreach ($teams as $v) { ?>
+                    <div class="team-item rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="<?= _upload_tinnho_l . $v['photo'] ?>" alt="">
+                            <div class="team-overlay">
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="bg-light text-center p-4">
-                        <h4 class="text-uppercase">John Doe</h4>
-                        <p class="m-0">CEO, Founder</p>
-                    </div>
-                </div>
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                        <div class="team-overlay">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="bg-light text-center p-4">
+                            <h4 class="text-uppercase"><?= $v['ten_vi'] ?></h4>
+                            <p class="m-0"><?= $v['chucvu_vi'] ?></p>
                         </div>
                     </div>
-                    <div class="bg-light text-center p-4">
-                        <h4 class="text-uppercase">Kate Wilson</h4>
-                        <p class="m-0">Designer</p>
-                    </div>
-                </div>
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                        <div class="team-overlay">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-light text-center p-4">
-                        <h4 class="text-uppercase">John Brown</h4>
-                        <p class="m-0">Developer</p>
-                    </div>
-                </div>
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                        <div class="team-overlay">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-light text-center p-4">
-                        <h4 class="text-uppercase">Paul Watson</h4>
-                        <p class="m-0">Marketer</p>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -313,30 +244,16 @@
         <div class="container py-5">
             <h1 class="display-4 text-uppercase text-center mb-5">Our Client's Say</h1>
             <div class="owl-carousel testimonial-carousel">
-                <div class="testimonial-item position-relative text-center rounded p-4">
-                    <img class="img-fluid rounded mx-auto my-4" src="img/testimonial-1.jpg" alt="">
-                    <h5 class="text-uppercase">Client Name</h5>
-                    <p class="text-uppercase">Profession</p>
-                    <p class="text-secondary">Tempor lorem dolor sea et ipsum, lorem justo kasd dolore vero eos. Lorem duo ipsum sea amet et clita dolor</p>
-                </div>
-                <div class="testimonial-item position-relative text-center rounded p-4">
-                    <img class="img-fluid rounded mx-auto my-4" src="img/testimonial-2.jpg" alt="">
-                    <h5 class="text-uppercase">Client Name</h5>
-                    <p class="text-uppercase">Profession</p>
-                    <p class="text-secondary">Tempor lorem dolor sea et ipsum, lorem justo kasd dolore vero eos. Lorem duo ipsum sea amet et clita dolor</p>
-                </div>
-                <div class="testimonial-item position-relative text-center rounded p-4">
-                    <img class="img-fluid rounded mx-auto my-4" src="img/testimonial-3.jpg" alt="">
-                    <h5 class="text-uppercase">Client Name</h5>
-                    <p class="text-uppercase">Profession</p>
-                    <p class="text-secondary">Tempor lorem dolor sea et ipsum, lorem justo kasd dolore vero eos. Lorem duo ipsum sea amet et clita dolor</p>
-                </div>
-                <div class="testimonial-item position-relative text-center rounded p-4">
-                    <img class="img-fluid rounded mx-auto my-4" src="img/testimonial-4.jpg" alt="">
-                    <h5 class="text-uppercase">Client Name</h5>
-                    <p class="text-uppercase">Profession</p>
-                    <p class="text-secondary">Tempor lorem dolor sea et ipsum, lorem justo kasd dolore vero eos. Lorem duo ipsum sea amet et clita dolor</p>
-                </div>
+                <?php foreach ($testimonial as $v) { ?>
+                    <div class="testimonial-item position-relative text-center rounded p-4">
+                        <img class="img-fluid rounded mx-auto my-4" src="<?= _upload_tinnho_l . $v['photo'] ?>" alt="">
+                        <h5 class="text-uppercase"><?= $v['ten_vi'] ?></h5>
+                        <p class="text-uppercase"><?= $v['chucvu_vi'] ?></p>
+                        <p class="text-secondary"><?= $v['mota_vi'] ?></p>
+                    </div>
+                <?php } ?>
+
+
             </div>
         </div>
     </div>
@@ -348,10 +265,7 @@
         <div class="row mt-5 mx-0">
             <div class="col-12 px-0" style="height: 500px;">
                 <div class="position-relative h-100">
-                    <iframe class="position-relative w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
+                    <iframe class="position-relative w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
         </div>
