@@ -37,16 +37,6 @@
   new WOW().init();
 </script> -->
 
-
-
-
-
-
-
-
-
-
-
 <!--Thêm alt cho hình ảnh-->
 
 <script type="text/javascript">
@@ -66,13 +56,6 @@
 </script>
 
 <!--Thêm alt cho hình ảnh-->
-
-
-
-
-
-
-
 
 <div id="fb-root"></div>
 <script>

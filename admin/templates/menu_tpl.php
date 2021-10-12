@@ -1,4 +1,4 @@
-<?php if(!defined('_kiemtraweb') || _kiemtraweb!=$check_website) daysangtranglogin(); ?>
+<?php if (!defined('_kiemtraweb') || _kiemtraweb != $check_website) daysangtranglogin(); ?>
 
 
 
@@ -127,56 +127,44 @@
 
           </div>  -->
 
-           <!-- sidebar menu area start -->
-        <div class="sidebar-menu">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <a href="index.php"><img src="assets/images/icon/logo.png" alt="logo"></a>
-                </div>
-            </div>
-            <div class="main-menu">
-                <div class="menu-inner">
-                    <nav>
-                        <ul class="metismenu" id="menu">
+<!-- sidebar menu area start -->
+<div class="sidebar-menu">
+  <div class="sidebar-header">
+    <div class="logo">
+      <a href="index.php"><img src="assets/images/icon/logo.png" alt="logo"></a>
+    </div>
+  </div>
+  <div class="main-menu">
+    <div class="menu-inner">
+      <nav>
+        <ul class="metismenu" id="menu">
 
-
-
-                           <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> <span>Projects</span></a>
-                                <ul class="collapse">
-                                    <li><a href="index.php?com=product&act=man_cat">Projects Level 01</a></li>
-                                    <!-- <li><a href="#" aria-expanded="true">Item level (1)</a>
+          <li>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> <span>Projects</span></a>
+            <ul class="collapse">
+              <li><a href="index.php?com=product&act=man_cat">Projects Level 01</a></li>
+              <!-- <li><a href="#" aria-expanded="true">Item level (1)</a>
                                         <ul class="collapse">
                                             <li><a href="#">Item level (2)</a></li>
                                             <li><a href="#">Item level (2)</a></li>
                                             <li><a href="#">Item level (2)</a></li>
                                         </ul>
                                     </li> -->
-                                    <li><a href="index.php?com=product&act=man">Projects Main</a></li>
-                                </ul>
-                            </li> 
+              <li><a href="index.php?com=product&act=man">Projects Main</a></li>
+            </ul>
+          </li>
 
 
 
 
-                           <li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>About</span></a>
-                                <ul class="collapse">
-                                    
-                                    <li><a href="index.php?com=about&act=capnhap">About</a></li>
-                                   
-                                </ul>
-                            </li>
-                           <!--   <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
-                                        Types
-                                    </span></a>
-                                <ul class="collapse">
-                                    <li><a href="index.html">Left Sidebar</a></li>
-                                    <li><a href="index3-horizontalmenu.html">Horizontal Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li>
+          <li>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>About</span></a>
+            <ul class="collapse">
+              <li><a href="index.php?com=about&act=capnhap">About</a></li>
+            </ul>
+          </li>
+
+          <!--     <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
                                 <ul class="collapse">
                                     <li><a href="barchart.html">bar chart</a></li>
@@ -184,17 +172,25 @@
                                     <li><a href="piechart.html">pie chart</a></li>
                                 </ul>
                             </li> -->
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>NEWS</span></a>
-                                <ul class="collapse">
-                                    <li><a href="index.php?com=tinnho&act=man">SERVICE</a></li>
-                                    <li><a href="index.php?com=tinnho&act=man1">PRICE</a></li>
-                                    <!-- <li><a href="index.php?com=tinnho&act=man2">PROJECT</a></li> -->
-                                    <li><a href="index.php?com=tinnho&act=man3">TEAM</a></li>
-                                    <li><a href="index.php?com=tinnho&act=man4">TESTIMONIAL</a></li>
-                                </ul>
-                            </li>
-                            <!-- <li>
+          <li>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>NEWS</span></a>
+            <ul class="collapse">
+              <li><a href="index.php?com=tinnho&act=man">SERVICE</a></li>
+              <li><a href="index.php?com=tinnho&act=man1">PRICE</a></li>
+              <!-- <li><a href="index.php?com=tinnho&act=man2">PROJECT</a></li> -->
+              <li><a href="index.php?com=tinnho&act=man3">TEAM</a></li>
+              <li><a href="index.php?com=tinnho&act=man4">TESTIMONIAL</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>SlideShow</span></a>
+            <ul class="collapse">
+              <li><a href="index.php?com=photo&act=man">SlideShow Main</a></li>
+              <!-- <li><a href="index3-horizontalmenu.html">Horizontal Sidebar</a></li> -->
+            </ul>
+          </li>
+          <!-- <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>icons</span></a>
                                 <ul class="collapse">
                                     <li><a href="fontawesome.html">fontawesome icons</a></li>
@@ -218,14 +214,14 @@
                               
                                 </ul>
                             </li>-->
-                            <li>
-                                <a href="index.php?com=company&act=capnhap" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
-                                    <span>THÔNG TIN CÔNG TY</span></a>
-                            </li>
-                         
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- sidebar menu area end -->
+          <li>
+            <a href="index.php?com=company&act=capnhap" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
+              <span>THÔNG TIN CÔNG TY</span></a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- sidebar menu area end -->

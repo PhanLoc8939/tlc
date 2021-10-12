@@ -67,76 +67,32 @@
                         <li class="btn btn-outline-dark text-uppercase py-2 px-4 active" data-filter="*">
                             <i class="fa fa-star text-primary mr-2"></i>All
                         </li>
-                        <li class="btn btn-outline-dark text-uppercase py-2 px-4" data-filter=".first">
-                            <i class="fa fa-laptop-code text-primary mr-2"></i>Design
-                        </li>
-                        <li class="btn btn-outline-dark text-uppercase py-2 px-4" data-filter=".second">
-                            <i class="fa fa-mobile-alt text-primary mr-2"></i>Development
-                        </li>
+                        <?php foreach ($sanphamcap1 as $v) { ?>
+                            <li class="btn btn-outline-dark text-uppercase py-2 px-4" data-filter=".<?= $v['id'] ?>">
+                                <i class="fa fa-laptop-code text-primary mr-2"></i><?= $v['ten_vi'] ?>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative rounded overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
-                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-4x fa-plus text-primary"></i>
-                            </a>
+                <?php foreach ($sanphamcap1 as $v) {
+                    $sql = "select * from #_product where  hienthi=1  and id_cat=" . $v['id'] . " order by id asc  ";
+                    $d->query($sql);
+                    $sanpham = $d->result_array();
+                    foreach ($sanpham as $v1) { ?>
+                        <div class="col-lg-4 col-md-6 mb-4 portfolio-item <?= $v['id'] ?>">
+                            <div class="position-relative rounded overflow-hidden mb-2">
+                                <img class="img-fluid w-100" src="<?= _upload_sanpham_l . $v1['photo'] ?>" alt="">
+                                <div class="portfolio-btn d-flex align-items-center justify-content-center">
+                                    <a href="<?= _upload_sanpham_l . $v1['photo'] ?>" data-lightbox="portfolio">
+                                        <i class="fa fa-4x fa-plus text-primary"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative rounded overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
-                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-4x fa-plus text-primary"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative rounded overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
-                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-4x fa-plus text-primary"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative rounded overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
-                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-4x fa-plus text-primary"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative rounded overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="img/portfolio-5.jpg" alt="">
-                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-4x fa-plus text-primary"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative rounded overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="img/portfolio-6.jpg" alt="">
-                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-4x fa-plus text-primary"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <?php }
+                } ?>
             </div>
         </div>
     </div>

@@ -46,29 +46,15 @@
 
     <!-- Table Holder End -->
 
-
-
     <div class="col-md-12 margin_bottom_10px pt-10">
-
       <div class="col-md-4 paging_0px">
-
         <a href="index.php?com=tinnho&act=add<?= $chuoi_noi_curpage ?>" class="btn btn-success"><i class="fa fa-check"></i> Thêm</a>
-
         <a href="index.php?com=tinnho&act=man" class="btn btn-info"><i class="fa fa-share"></i> Thoát</a>
-
       </div>
-
       <div class="col-md-8 paging_0px">
-
         <div class="paging"><?= $paging['paging'] ?></div>
-
       </div>
-
-
-
       <div class="clearfix"></div>
-
     </div>
-
   </div>
 </div>

@@ -24,3 +24,7 @@ $d->reset();
 $sql = "select  id,photo,ten_$lang,mota_$lang,chucvu_vi  from #_tinnho where hienthi=1 and com=4 order by stt asc, id desc";
 $d->query($sql);
 $testimonial = $d->result_array();
+
+$sql = "select * from #_product_cat where  hienthi=1  and com='cat' order by id asc  ";
+$d->query($sql);
+$sanphamcap1 = $d->result_array();
