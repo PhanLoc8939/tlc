@@ -60,7 +60,7 @@ if ($_REQUEST['command'] == 'add' && $_REQUEST['productid'] > 0) {
   <link href="<?= _upload_company_l . $company["favicon"] ?>" rel="shortcut icon" type="image/x-icon" />
   <meta name="revisit-after" content="1 days" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes">
   <meta name="monitor-signature" content="monitor:player:html5">
   <meta name="author" content="<?= $title_bar ?>">
   <meta name="keywords" content="<?= $keywords ?>" />
@@ -128,7 +128,9 @@ if ($_REQUEST['command'] == 'add' && $_REQUEST['productid'] > 0) {
   <script src="media/jqBootstrapValidation.min.js"></script>
   <script src="media/contact.js"></script>
   <!-- Template Javascript -->
+  <script src="media/js/ani.js"></script>
   <script src="media/js/main.js"></script>
+
 
 
 </body>

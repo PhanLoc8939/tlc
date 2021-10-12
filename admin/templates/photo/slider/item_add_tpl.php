@@ -29,7 +29,7 @@
     <div class="clearfix"></div>
     <?php if ($_REQUEST['act'] == 'edit') { ?>
       <div class="col-md-2 pt-20"><label>Hình hiện tại</label></div>
-      <div class="col-md-10 pt-20"><img src="<?= _upload_hinhanh . $item['photo'] ?>" width="250" alt="NO PHOTO" /><br /><br /></div>
+      <div class="col-md-10 pt-20"><img src="<?= _upload_hinhanh . $item['photo'] ?>" width="100%" alt="NO PHOTO" /><br /><br /></div>
     <?php } ?>
     <div class="col-md-2 pt-10"><label>Hình ảnh</label></div>
     <div class="col-md-10">

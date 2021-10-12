@@ -2,13 +2,14 @@
 <script src="media/js/jquery-3.5.1.min.js"></script>
 <!-- <script src="media/js/jquery-3.2.1.min.js"></script> -->
 
-<script type="text/javascript" src="media/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="media/js/jquery-ui.min.js"></script>
+<!-- <script type="text/javascript" src="media/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="media/js/jquery-ui.min.js"></script> -->
 
 <!-- <script src='media/simplyscroll/jquery.simplyscroll.js'></script> -->
 <!-- <script src='media/spinner/jquery.spinner.js'></script> -->
 
 <!-- Libraries Stylesheet -->
+<script src="media/slick/slick.min.js"></script>
 <link href="media/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <script src='media/owl/owl.carousel.min.js'></script>
 <link href="media/lightbox/css/lightbox.min.css" rel="stylesheet">

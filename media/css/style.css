@@ -595,7 +595,21 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
+.ani-scroll {
+  transform: translateY(40px);
+  opacity: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  transition-property: transform, opacity;
+}
 
+.ani-scroll.act {
+  transform: translateY(0);
+  opacity: 1;
+}
+.team-carousel .owl-nav {
+  display: block !important;
+}
 .container,
 .container-fluid,
 .container-sm,
@@ -2730,7 +2744,12 @@ fieldset:disabled a.btn {
 .show > .btn-outline-secondary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(189, 189, 191, 0.5);
 }
-
+.navbar-nav .dropdown.show{
+  z-index: 9999999999999999999;
+}
+.navbar-nav .dropdown-menu.show{
+  z-index: 9999999999999999999;
+}
 .btn-outline-success {
   color: #28a745;
   border-color: #28a745;
@@ -9845,8 +9864,13 @@ h6,
   /* margin-bottom: 90px; */
 }
 
+.d-block{
+  display: block;
+}
+.w-full{
 
-
+  width: 100%;
+}
 .team-carousel .owl-nav {
   position: absolute;
   width: 60px;

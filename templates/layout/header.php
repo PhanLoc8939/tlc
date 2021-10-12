@@ -1,6 +1,6 @@
    <!-- Navbar Start -->
-   <div class="container-fluid bg-white position-relative">
-       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+   <div class="container-fluid bg-white position-relative ">
+       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 ani ani-scroll">
            <a href="" class="navbar-brand text-secondary">
                <h1 class="display-4 text-uppercase">DOT.NET</h1>
            </a>

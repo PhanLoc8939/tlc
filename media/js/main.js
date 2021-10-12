@@ -1,5 +1,31 @@
 (function ($) {
     "use strict";
+ 
+    const __mvSlick = $(".mv-slide");
+
+
+
+    $(window).on("load", function() {
+        __mvSlick.slick({
+            slidesToShow: 1,
+            dots: false,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false,
+            infinite: true,
+            speed: 2000,
+            fade: true,
+            cssEase: "linear",
+            focusOnSelect: false,
+            pauseOnHover: false,
+            draggable: false,
+        });
+    });
+    var _isChangeSP = false;
+
+
+
+
     
     // Dropdown on mouse hover
     $(document).ready(function () {
@@ -17,8 +43,8 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -28,7 +54,9 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -42,7 +70,9 @@
         $("#portfolio-flters li").removeClass('active');
         $(this).addClass('active');
 
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
+        portfolioIsotope.isotope({
+            filter: $(this).data('filter')
+        });
     });
 
 
@@ -53,23 +83,23 @@
         margin: 30,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="fa fa-angle-left" aria-hidden="true"></i>',
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            576:{
-                items:1
+            576: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             },
-            992:{
-                items:3
+            992: {
+                items: 3
             }
         }
     });
@@ -84,20 +114,19 @@
         loop: true,
         center: true,
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            576:{
-                items:1
+            576: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             },
-            992:{
-                items:3
+            992: {
+                items: 3
             }
         }
     });
-    
-})(jQuery);
 
+})(jQuery);
