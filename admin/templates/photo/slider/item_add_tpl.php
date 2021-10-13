@@ -107,8 +107,8 @@
           <div class="col-md-10"><input type="text" class="w-full txt-area" name="ten_<?= $value ?>" id="ten_<?= $value ?>" value="<?= $item['ten_' . $value] ?>" placeholder="Tên " /></div>
           <div class="clearfix"></div>
           <br>
-          <div class="col-md-2 pt-10"><label>Link <?= $config["langs"][$value] ?></label></div>
-          <div class="col-md-10"><input type="text" class="w-full txt-area" name="link_<?= $value ?>" id="link_<?= $value ?>" value="<?= $item['link_' . $value] ?>" placeholder="Link " /></div>
+          <div class="col-md-2 pt-10"><label>Link</label></div>
+          <div class="col-md-10"><input type="text" class="w-full txt-area" name="link" id="link" value="<?= $item['link'] ?>" placeholder="Link " /></div>
           <div class="clearfix"></div>
           <br>
           <div class="col-md-2"></div>

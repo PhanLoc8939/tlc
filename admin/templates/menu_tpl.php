@@ -134,6 +134,14 @@
       <nav>
         <ul class="metismenu" id="menu">
 
+
+          <li>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>About</span></a>
+            <ul class="collapse">
+              <li><a href="index.php?com=about&act=capnhap">About</a></li>
+            </ul>
+          </li>
+
           <li>
             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> <span>Projects</span></a>
             <ul class="collapse">
@@ -149,12 +157,6 @@
             </ul>
           </li>
 
-          <li>
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>About</span></a>
-            <ul class="collapse">
-              <li><a href="index.php?com=about&act=capnhap">About</a></li>
-            </ul>
-          </li>
 
           <!-- <li>
             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>

@@ -1,8 +1,8 @@
    <!-- Navbar Start -->
-   <div class="container-fluid bg-white position-relative ">
-       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 ani ani-scroll">
+   <div class="container-fluid position-relative z-9">
+       <nav class="navbar navbar-expand-lg navbar-light py-3 py-lg-0 ani ani-scroll">
            <a href="" class="navbar-brand text-secondary">
-               <h1 class="display-4 text-uppercase">DOT.NET</h1>
+               <h1 class="display-4 text-uppercase"><img src="<?= _upload_company_l . $company['logore'] ?>" alt=""></h1>
            </a>
            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                <span class="navbar-toggler-icon"></span>
@@ -14,11 +14,11 @@
                    <a href="service.html" class="nav-item nav-link">Services</a>
                    <a href="price.html" class="nav-item nav-link">Prices</a>
                    <a href="project.html" class="nav-item nav-link">Projects</a>
-                   <div class="nav-item dropdown">
-                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                   <div class="nav-item">
+                       <a href="#" class="nav-link btn-down">Pages</a>
                        <div class="dropdown-menu rounded-0 m-0">
-                           <a href="team.html" class="dropdown-item">Meat The Team</a>
-                           <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                           <p><a href="team.html">Meat The Team</a></p>
+                           <p><a href="testimonial.html">Testimonial</a></p>
                        </div>
                    </div>
                    <a href="contact.html" class="nav-item nav-link">Contact</a>

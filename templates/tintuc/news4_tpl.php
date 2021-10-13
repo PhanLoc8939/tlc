@@ -1,7 +1,7 @@
   <!-- Page Header Start -->
-  <div class="page-header container-fluid bg-primary d-flex flex-column align-items-center justify-content-center">
-      <h1 class="display-3 text-uppercase mb-3"><?= $title_ttt ?></h1>
-      <div class="d-inline-flex text-white">
+  <div class="page-header container-fluid bg-primary d-flex flex-column align-items-center justify-content-center ani ani-scroll">
+      <h1 class="display-3 text-uppercase mb-3 ani ani-scroll"><?= $title_ttt ?></h1>
+      <div class="d-inline-flex text-white ani ani-scroll">
           <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
           <h6 class="m-0 px-3">/</h6>
           <h6 class="text-uppercase m-0"><?= $title_ttt ?></h6>
@@ -11,9 +11,9 @@
   <?php if ($id != '') { ?>
       <div class="container-fluid ">
           <div class="container pt-5 pb-3">
-              <h1 class="display-4 text-uppercase text-center mb-5"><?= $news['ten_vi'] ?></h1>
+              <h1 class="display-4 text-uppercase text-center mb-5 ani ani-scroll"><?= $news['ten_vi'] ?></h1>
           </div>
-          <div class="w-full">
+          <div class="w-full ani ani-scroll">
               <?php if ($news['noidung_vi'] != '') { ?>
                   <?= $news['noidung_vi'] ?>
               <?php } else { ?>
@@ -23,10 +23,10 @@
 
           <div class="othernews pt-5">
 
-              <h2 class="t11">SERVICES MORE</h2>
+              <h2 class="t11 ani ani-scroll">TESTIMONIAL MORE</h2>
               <ul style="margin: 0px; padding: 0px;">
                   <?php foreach ($newskhac as $key => $v) { ?>
-                      <div class="box_newskhac">
+                      <div class="box_newskhac ani ani-scroll">
                           <h2> <a href="testimonial/<?= $v['tenkhongdau_vi'] ?>-<?= $v['id'] ?>.html">+ <?= $v['ten_vi'] ?></a></h2>
                       </div>
                   <?php } ?>
@@ -39,8 +39,8 @@
       <!-- Testimonial Start -->
       <div class="container-fluid py-5">
           <div class="container py-5">
-              <h1 class="display-4 text-uppercase text-center mb-5">Our Client's Say</h1>
-              <div class="owl-carousel testimonial-carousel">
+              <h1 class="display-4 text-uppercase text-center mb-5 ani ani-scroll">Our Client's Say</h1>
+              <div class="owl-carousel testimonial-carousel ani ani-scroll">
                   <?php foreach ($news as $v) { ?>
                       <div class="testimonial-item position-relative text-center rounded p-4">
                           <a href="testimonial/<?= $v['tenkhongdau_vi'] ?>-<?= $v['id'] ?>.html">

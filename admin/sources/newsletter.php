@@ -198,5 +198,3 @@ function send($host,$email,$pass){
 
 	
 }
-
-?>

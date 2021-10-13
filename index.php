@@ -113,6 +113,9 @@ if ($_REQUEST['command'] == 'add' && $_REQUEST['productid'] > 0) {
 <body>
   <div id="wrapper">
     <?php include_once _template . "layout/header.php"; ?>
+    <?php if ($com = "" || $com = "index" || $com = "trang-chu") { ?>
+      <?php include_once _template . "layout/slider/nivoslider.php"; ?>
+    <?php } ?>
     <div id="content" class="width_100">
       <?php include_once _template . $template . "_tpl.php"; ?>
     </div>

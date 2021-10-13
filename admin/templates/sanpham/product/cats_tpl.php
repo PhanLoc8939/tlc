@@ -30,10 +30,10 @@
                   foreach ($items as $k => $v) { ?>
                     <tr>
                       <td><?= $v['stt'] ?></td>
-                      <td><a href="index.php?com=product&act=edit_cat&id=<?= $v['id'] ?><?= $chuoi_noi_curpage1 ?>" style="text-decoration:none;"><img src="<?= _upload_sanpham . $v['photo'] ?>" border="1" class="sp_img" width="175px" /></a></td>
+                      <!-- <td><a href="index.php?com=product&act=edit_cat&id=<?= $v['id'] ?><?= $chuoi_noi_curpage1 ?>" style="text-decoration:none;"><img src="<?= _upload_sanpham . $v['photo'] ?>" border="1" class="sp_img" width="175px" /></a></td> -->
                       <td><a href="index.php?com=product&act=edit_cat&id=<?= $v['id'] ?><?= $chuoi_noi_curpage1 ?>"><?= $v['ten_vi'] ?></a></td>
-                      <td><a href="index.php?com=product&act=man_photo&id_cat=<?= $v['id'] ?>&type=cat"><i class="fa fa-plus"></i> Add</a></td> -->
-                      <td><a class="clickchange" thaydoiloai="hot" thaydoitable="table_product_cat" thaydoiid="<?= $v['id'] ?>" id="idcsshot<?= $v['id'] ?>"><img src="<?= ($v['hot'] == 1) ? 'media/images/yes-km.gif' : 'media/images/no-km.gif' ?>" border="0" /></a></td>
+                      <!-- <td><a href="index.php?com=product&act=man_photo&id_cat=<?= $v['id'] ?>&type=cat"><i class="fa fa-plus"></i> Add</a></td>
+                      <td><a class="clickchange" thaydoiloai="hot" thaydoitable="table_product_cat" thaydoiid="<?= $v['id'] ?>" id="idcsshot<?= $v['id'] ?>"><img src="<?= ($v['hot'] == 1) ? 'media/images/yes-km.gif' : 'media/images/no-km.gif' ?>" border="0" /></a></td> -->
                       <td><a class="clickchange" thaydoiloai="noibat" thaydoitable="table_product_cat" thaydoiid="<?= $v['id'] ?>" id="idcssnoibat<?= $v['id'] ?>"><img src="<?= ($v['noibat'] == 1) ? 'media/images/yes-km.gif' : 'media/images/no-km.gif' ?>" border="0" /></a></td>
                       <td><a class="clickhienthi" thaydoiloai="hienthi" thaydoitable="table_product_cat" thaydoiid="<?= $v['id'] ?>" id="idcsshienthi<?= $v['id'] ?>"><img src="<?= ($v['hienthi'] == 1) ? 'media/images/active_1.png' : 'media/images/active_0.png' ?>" border="0" /></a></td>
                       <td><a href="index.php?com=product&act=edit_cat&id=<?= $v['id'] ?><?= $chuoi_noi_curpage1 ?>"><img src="media/images/edit.png" border="0" title="Sửa" /></a></td>

@@ -3,7 +3,7 @@
        <div class="row pt-5">
            <div class="col-lg-3 col-md-6 mb-5 ani ani-scroll">
                <a href="index.html" class="navbar-brand">
-                   <h1 class="m-0 mt-n2 text-white display-4">DOT.NET</h1>
+                   <h1 class="m-0 mt-n2 text-white display-4"><img src="<?= _upload_company_l . $company['logofooter'] ?>" alt=""></h1>
                </a>
                <p><?= $company['mota_vi'] ?></p>
                <h6 class="text-uppercase text-white py-2">Follow Us</h6>
@@ -36,12 +36,16 @@
                <h4 class="text-uppercase text-white mb-4">Newsletter</h4>
                <p class="mb-4"><?= $company['noidung_vi'] ?></p>
                <div class="w-100 mb-3">
-                   <div class="input-group">
-                       <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
-                       <div class="input-group-append">
-                           <button class="btn btn-primary text-uppercase px-3">Sign Up</button>
+                   <form method="post" name="frm_order" action="dang-ky-nhan-tin.html" enctype="multipart/form-data" onsubmit="return check(); ">
+                       <div class=" input-group">
+                           <input type="text" name="txtemail" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                           <div class="input-group-append">
+                               <button type="submit" class="btn btn-primary text-uppercase px-3">Sign Up</button>
+                           </div>
                        </div>
-                   </div>
+                   </form>
+
+
                </div>
                <i>Lorem sit sed elitr sed kasd et</i>
            </div>

@@ -133,9 +133,9 @@ switch ($com) {
 		// $source = "newsletter/thongbaocohang";
 		// break;
 
-		// case 'dang-ky-nhan-tin111':
-		// $source = "newsletter/newslettermailthanhvien";
-		// break;
+	case 'dang-ky-nhan-thong-tin':
+		$source = "newsletter/newslettermailthanhvien";
+		break;
 
 		// case 'dang-nhap1':
 		// $template = "index";
@@ -145,6 +145,12 @@ switch ($com) {
 		// $source = "about/trangtinh";
 		// $template = "about/trang-tinh";
 		// break;
+
+	case 'index':
+		$trangchu_index = 1;
+		$source = "index";
+		$template = "index";
+		break;
 
 	case '':
 		$trangchu_index = 1;
